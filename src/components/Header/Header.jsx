@@ -3,6 +3,7 @@ import { Container, Logo, LogoutBtn } from "../index";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { ProfileIcon } from "../index";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status);
@@ -45,7 +46,7 @@ function Header() {
               <Logo className={'h-24 w-44 rounded-2xl'} />
             </Link>
           </div>
-          <ul className="flex ml-auto text-white">
+          <ul className="flex ml-auto text-white gap-5 items-center">
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
@@ -58,11 +59,12 @@ function Header() {
                 </li>
               ) : null
             )}
-            {authStatus && (
-              <li className="font-bold text-white hover:text-black">
-                <LogoutBtn />
-              </li>
-            )}
+            { authStatus && (
+                <li className="text-white">
+                  <ProfileIcon />
+                </li>
+                )
+            }
           </ul>
         </nav>
       </Container>

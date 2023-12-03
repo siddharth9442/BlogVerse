@@ -12,7 +12,7 @@ import Login from './pages/Login.jsx'
 import AddPost from "./pages/AddPost";
 import Signup from "./pages/Signup";
 import EditPost from "./pages/EditPost";
-
+import Profile from "./pages/Profile.jsx";
 import Post from "./pages/Post";
 
 import AllPost from "./pages/AllPost";
@@ -73,6 +73,14 @@ const router = createBrowserRouter([
         path: "/post/:slug",
         element: <Post />,
       },
+      {
+        path: "/profile",
+        element: (
+          <AuthLayout authentication>
+            <Profile />
+          </AuthLayout>
+        )
+      }
     ],
   },
 ]);

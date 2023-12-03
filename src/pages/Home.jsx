@@ -3,10 +3,10 @@ import appwriteService from "../appwrite/config";
 import { Container, PostCard } from "../components";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
+
 function Home() {
   const [posts, setPosts] = useState([]);
   const authStatus = useSelector(state => state.auth.status)
-  console.log(authStatus);
 
   useEffect(() => {
     appwriteService.getPosts().then((posts) => {
@@ -22,7 +22,7 @@ function Home() {
         <Container>
           <div className="flex flex-wrap">
             <div className="p-2 w-full">
-              <h1 className="text-2xl font-bold hover:text-gray-500">
+              <h1 className="text-2xl font-bold">
                 Login to read posts
               </h1>
             </div>
